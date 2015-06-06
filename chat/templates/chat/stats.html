@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>Argument Analytics</title>
+        {% load staticfiles %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/bootstrap.css' %}" />
+
+    </head>
+
+    <body style="padding:15px">
+        <h1>Statistics</h1>
+        {% load staticfiles %}
+        <center><img src="{% static "chat/barak.jpeg" %}"></center>
+        <center><p>Most Popular Candidate :
+		{{ maximump }} with {{ maximum }} Votes </p>  </center>   
+        <strong>Most Popular Argument</strong>
+        <div class="panel-body" style="border:1px solid;border-radius:5px">
+		{% if argument_list %}
+        <ul class="media-list">
+                                {% for argument in theargument %}
+                                    <li class="media">
+
+                                        <div class="media-body">
+
+                                            <div class="media">
+                                                <a class="pull-left" href="#">
+                                                   <!--  <img class="media-object img-circle " src="{{ argument.person.image.images }}" /> -->
+                                                </a>
+                                                <div class="media-body" id="rde" >
+                                                    
+                                                     {{  argument.text }}
+
+                                                    <br />
+                                                   <small class="text-muted">{{ argument.person }} | {{ argument.time }}</small>
+                                            
+                                                </div> 
+                                            </div>
+ 
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+     
+                                </ul>
+                                {% else %}
+                                <p>No discussions available.</p>
+                                {% endif %}
+            </div>
+            <hr>
